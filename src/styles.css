@@ -68,7 +68,22 @@ img { max-width: 100%; display: block; }
   display: flex;
   align-items: center;
   gap: 10px;
+  min-width: 0;
 }
+.word-col {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  min-width: 0;
+}
+.byline {
+  font-size: 10px;
+  color: var(--mist);
+  text-decoration: none;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+.byline:hover { color: var(--sand); }
 
 .iris {
   width: 22px;
@@ -210,6 +225,23 @@ img { max-width: 100%; display: block; }
 .drop p { margin: 0; color: var(--mist); font-size: 14px; }
 
 .drop-row { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
+.credit {
+  margin: 18px 0 0;
+  color: var(--mist);
+  font-size: 12px;
+  letter-spacing: 0.01em;
+}
+.credit a {
+  color: var(--sand);
+  text-decoration: none;
+}
+.credit a:hover { color: var(--linen); }
+.rail-credit {
+  margin: 8px 0 0;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+  font-size: 11px;
+}
 
 .btn {
   border: 0;

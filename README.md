@@ -4,6 +4,8 @@ Original in-tab subject cutout. Hair-ok mattes, studio backdrops, before/after. 
 
 Live: https://asherweisberger.github.io/mattekit/
 
+Made by [Asher Weisberger](https://x.com/AsherWeisberger) ([@AsherWeisberger](https://x.com/AsherWeisberger))
+
 Mattekit is an original tool and is not affiliated with Photoroom, remove.bg, or Canva.
 
 ## Why
@@ -42,5 +44,5 @@ Vite + React + TypeScript. Canvas 2D. onnxruntime-web via Transformers.js. fflat
 
 ## License
 
-MIT. Copyright 2026 Asher Weisberger.
+MIT. Copyright 2026 Asher Weisberger ([@AsherWeisberger](https://x.com/AsherWeisberger)).
 The ormbg weights are Apache-2.0 (see the model card).

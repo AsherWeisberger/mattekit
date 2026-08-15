@@ -276,8 +276,13 @@ export function App() {
               <circle cx="16" cy="16" r="4.2" fill="#D9CCAC" />
             </svg>
           </span>
-          <span className="word">
-            Matte<i>kit</i>
+          <span className="word-col">
+            <span className="word">
+              Matte<i>kit</i>
+            </span>
+            <a className="byline" href="https://x.com/AsherWeisberger" rel="noopener noreferrer">
+              @AsherWeisberger
+            </a>
           </span>
         </div>
         <p className="privacy">
@@ -329,6 +334,12 @@ export function App() {
                   </button>
                 </div>
               </div>
+              <p className="credit">
+                Made by Asher Weisberger ·{" "}
+                <a href="https://x.com/AsherWeisberger" rel="noopener noreferrer">
+                  @AsherWeisberger
+                </a>
+              </p>
             </div>
           )}
 
@@ -489,6 +500,12 @@ export function App() {
               </button>
               {!modelReady && progress && <p className="err" style={{ color: "var(--mist)", marginTop: 10 }}>{progress.status}</p>}
             </section>
+            <p className="credit rail-credit">
+              Made by Asher Weisberger ·{" "}
+              <a href="https://x.com/AsherWeisberger" rel="noopener noreferrer">
+                @AsherWeisberger
+              </a>
+            </p>
           </aside>
         )}
 
