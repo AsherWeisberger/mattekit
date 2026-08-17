@@ -726,10 +726,6 @@ input[type="range"]::-webkit-slider-thumb {
 .thumb .spin { background: transparent; display: grid; place-items: center; }
 .thumb .orb-pill { height: 28px; padding: 0 8px 0 4px; transform: scale(0.9); }
 
-.orb-pill {
-  backdrop-filter: saturate(1.25) blur(18px);
-  -webkit-backdrop-filter: saturate(1.25) blur(18px);
-}
 .orb-pill.dark { background: rgba(13, 15, 20, 0.72); }
 .orb-pill.light { background: rgba(240, 239, 236, 0.78); }
 .orb-phone-only { display: none; }

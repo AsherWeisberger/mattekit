@@ -11,8 +11,7 @@ import {
   type Shot,
 } from "./lib/export";
 import { createCutter, type WorkerProgress } from "./worker/client";
-import { ThinkingOrb } from "thinking-orbs";
-import { StatusOrb } from "./StatusOrb";
+import { OrbDot, StatusOrb } from "./StatusOrb";
 
 const MAX = 8;
 
@@ -519,7 +518,7 @@ export function App() {
                 <Thumb bmp={it.original} />
                 {it.status !== "ready" && it.status !== "error" && (
                   <span className="spin">
-                    <ThinkingOrb state="shaping" size={20} theme="dark" />
+                    <OrbDot state="shaping" theme="dark" />
                   </span>
                 )}
                 <span
