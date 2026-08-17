@@ -13,7 +13,8 @@
     "@huggingface/transformers": "^3.7.2",
     "fflate": "^0.8.2",
     "react": "^19.1.1",
-    "react-dom": "^19.1.1"
+    "react-dom": "^19.1.1",
+    "thinking-orbs": "^0.3.1"
   },
   "devDependencies": {
     "@types/react": "^19.1.10",

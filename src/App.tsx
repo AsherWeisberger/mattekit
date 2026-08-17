@@ -11,6 +11,8 @@ import {
   type Shot,
 } from "./lib/export";
 import { createCutter, type WorkerProgress } from "./worker/client";
+import { ThinkingOrb } from "thinking-orbs";
+import { StatusOrb } from "./StatusOrb";
 
 const MAX = 8;
 
@@ -256,16 +258,6 @@ export function App() {
     queueRef.current = queueRef.current.filter((q) => q !== id);
   }
 
-  const pct =
-    progress?.total && progress.loaded
-      ? Math.round((progress.loaded / progress.total) * 100)
-      : progress?.pct ?? (progress ? 12 : 0);
-
-  const sizeLabel =
-    progress?.total && progress.loaded
-      ? `${(progress.loaded / 1e6).toFixed(1)} / ${(progress.total / 1e6).toFixed(0)} MB`
-      : "";
-
   return (
     <div className="app">
       <header className="top">
@@ -368,13 +360,15 @@ export function App() {
             <div className="busy-stage">
               <canvas ref={afterRef} />
               <div className="progress-card" role="status">
-                <p>
-                  {progress?.status || (active.status === "error" ? active.error : "Waiting for the model…")}
-                  {sizeLabel ? `  ${sizeLabel}` : ""}
-                </p>
-                <div className="bar">
-                  <span style={{ ["--pct" as string]: `${Math.max(6, pct)}%` }} />
-                </div>
+                {active.status === "error" ? (
+                  <p>{active.error}</p>
+                ) : (
+                  <StatusOrb
+                    label={progress?.status || "Cutting the subject…"}
+                    state={progress?.phase === "cut" ? "shaping" : "connecting"}
+                    tone="dark"
+                  />
+                )}
               </div>
             </div>
           )}
@@ -498,7 +492,11 @@ export function App() {
               >
                 ZIP {readyShots.length > 1 ? `${readyShots.length} PNG` : "batch"}
               </button>
-              {!modelReady && progress && <p className="err" style={{ color: "var(--mist)", marginTop: 10 }}>{progress.status}</p>}
+              {!modelReady && progress && (
+                <div style={{ marginTop: 10 }}>
+                  <StatusOrb label={progress.status || "Loading model"} state="connecting" tone="dark" />
+                </div>
+              )}
             </section>
             <p className="credit rail-credit">
               Made by Asher Weisberger ·{" "}
@@ -519,7 +517,11 @@ export function App() {
                 onClick={() => setActiveId(it.id)}
               >
                 <Thumb bmp={it.original} />
-                {it.status !== "ready" && <span className="spin" />}
+                {it.status !== "ready" && it.status !== "error" && (
+                  <span className="spin">
+                    <ThinkingOrb state="shaping" size={20} theme="dark" />
+                  </span>
+                )}
                 <span
                   className="x"
                   onClick={(e) => {
